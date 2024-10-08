@@ -1,11 +1,13 @@
 const express = require("express");
 const { connectDB } = require("./Database/dbConfig.js");
 const blogModel = require("./Model/blog.model.js");
+const cors = require("cors");
 const app = express();
 // ===== connect database
 connectDB();
 // ========== middleware
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // ============ make routes and creating data
